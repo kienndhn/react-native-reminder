@@ -20,3 +20,17 @@ const Reminder = NativeModules.Reminder
 export function multiply(a: number, b: number): Promise<number> {
   return Reminder.multiply(a, b);
 }
+
+export function scheduleAlarm({
+  scheduleTime,
+  id,
+}: {
+  scheduleTime: string;
+  id: number;
+}): Promise<any> {
+  return Reminder.scheduleAlarm({
+    scheduleTime: scheduleTime,
+    isRepeated: false,
+    id: id,
+  });
+}
